@@ -1,0 +1,45 @@
+ステータスコードのチェックを入れてみた。
+300人10秒ならば問題ないらしい.
+
+---
+
+ozw-sei:/home/ozw-sei/go/src/github.com/ozw-sei/k6-practice [desktop-pc-tsukumo] %
+ k6 run k6_test.js --vus 300 --duration 10s
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6_test.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 300 max VUs, 40s max duration (incl. graceful stop):
+           * default: 300 looping VUs for 10s (gracefulStop: 30s)
+
+
+running (10.0s), 000/300 VUs, 645488 complete and 0 interrupted iterations
+default ✓ [======================================] 300 VUs  10s
+
+     ✓ response code was 200
+     ✓ body size was 8 bytes
+
+     checks.........................: 100.00% ✓ 1290976      ✗ 0     
+     data_received..................: 80 MB   8.0 MB/s
+     data_sent......................: 52 MB   5.2 MB/s
+     http_req_blocked...............: avg=9.81µs  min=491ns   med=1.42µs  max=161.02ms p(90)=2.66µs  p(95)=3.37µs 
+     http_req_connecting............: avg=5.84µs  min=0s      med=0s      max=160.93ms p(90)=0s      p(95)=0s     
+     http_req_duration..............: avg=3.5ms   min=41.68µs med=2.24ms  max=99.37ms  p(90)=8.17ms  p(95)=10.97ms
+       { expected_response:true }...: avg=3.5ms   min=41.68µs med=2.24ms  max=99.37ms  p(90)=8.17ms  p(95)=10.97ms
+     http_req_failed................: 0.00%   ✓ 0            ✗ 645488
+     http_req_receiving.............: avg=43.2µs  min=4.84µs  med=16.81µs max=96.38ms  p(90)=28.08µs p(95)=57.67µs
+     http_req_sending...............: avg=26.19µs min=2.51µs  med=7.55µs  max=56.81ms  p(90)=12.6µs  p(95)=18.09µs
+     http_req_tls_handshaking.......: avg=0s      min=0s      med=0s      max=0s       p(90)=0s      p(95)=0s     
+     http_req_waiting...............: avg=3.43ms  min=23.55µs med=2.19ms  max=99.14ms  p(90)=8.06ms  p(95)=10.78ms
+     http_reqs......................: 645488  64530.648013/s
+     iteration_duration.............: avg=4.55ms  min=80.21µs med=3.01ms  max=181ms    p(90)=10.59ms p(95)=14.16ms
+     iterations.....................: 645488  64530.648013/s
+     vus............................: 300     min=300        max=300 
+     vus_max........................: 300     min=300        max=300 

@@ -1,0 +1,40 @@
+同接 10 人で 10秒間
+
+349275回呼ばれたらしい
+
+---
+ k6 run k6_test.js --vus 10 --duration 10s
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6_test.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 10 max VUs, 40s max duration (incl. graceful stop):
+           * default: 10 looping VUs for 10s (gracefulStop: 30s)
+
+
+running (10.0s), 00/10 VUs, 349275 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  10s
+
+     data_received..................: 43 MB  4.3 MB/s
+     data_sent......................: 28 MB  2.8 MB/s
+     http_req_blocked...............: avg=1.94µs   min=491ns   med=1.63µs   max=3.59ms p(90)=2.26µs   p(95)=2.67µs  
+     http_req_connecting............: avg=12ns     min=0s      med=0s       max=1.54ms p(90)=0s       p(95)=0s      
+     http_req_duration..............: avg=235.77µs min=37.36µs med=213.48µs max=5.95ms p(90)=344.71µs p(95)=412.34µs
+       { expected_response:true }...: avg=235.77µs min=37.36µs med=213.48µs max=5.95ms p(90)=344.71µs p(95)=412.34µs
+     http_req_failed................: 0.00%  ✓ 0            ✗ 349275
+     http_req_receiving.............: avg=25.4µs   min=6.04µs  med=21.05µs  max=5.23ms p(90)=36.34µs  p(95)=51.43µs 
+     http_req_sending...............: avg=8.55µs   min=2.42µs  med=7.29µs   max=2.47ms p(90)=9.6µs    p(95)=10.92µs 
+     http_req_tls_handshaking.......: avg=0s       min=0s      med=0s       max=0s     p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=201.81µs min=22.65µs med=180.71µs max=5.49ms p(90)=308.04µs p(95)=372.23µs
+     http_reqs......................: 349275 34924.404688/s
+     iteration_duration.............: avg=277.65µs min=62.62µs med=252.92µs max=6ms    p(90)=390.71µs p(95)=465.46µs
+     iterations.....................: 349275 34924.404688/s
+     vus............................: 10     min=10         max=10  
+     vus_max........................: 10     min=10         max=10  
